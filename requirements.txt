@@ -1,4 +1,5 @@
-bokeh== 2.4.3
+bokeh== 2.4.3 # Version required by streamlit
+numpy==1.21.0 # Bokeh is trying to use np.bool8. np.bool8 is known to exist this Version
 altair
 streamlit
 vega_datasets 
