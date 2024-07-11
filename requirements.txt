@@ -1,9 +1,8 @@
 
-
-
 #pandas==1.3.0
 # Streamlit requires this Version  
-bokeh
+#bokeh
+bokeh==2.4.3
 
 # Bokeh is trying to use np.bool8. np.bool8 is known to exist this Version
 #numpy
