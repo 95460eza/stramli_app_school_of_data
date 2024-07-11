@@ -71,3 +71,38 @@ elif choice == 'Altair':
     )
 
     st.altair_chart(points & bars)
+
+
+else:
+
+    #BOKEH
+    st.subheader("BOKEH")
+
+
+    hover = HoverTool(
+        tooltips = [('Label', '@Origin')], mode='mouse'
+    )
+
+
+    p = figure(title = "CARS PERFORMANCE",
+               background_fill_color="#fafafa",
+              tools=[hover, "pan", "crosshair","wheel_zoom", "box_zoom", "reset", "box_select"])
+
+    p.xaxis.axis_label = 'Horsepower'
+    p.yaxis.axis_label = 'Miles_per_Gallon'
+
+    #p.circle(source['Horsepower'], source['Miles_per_Gallon'])
+    p.scatter("Horsepower",
+              "Miles_per_Gallon",
+              source=source,
+              legend_group="Origin",
+              fill_alpha=0.4,
+              size=12,
+              #marker=factor_mark('species', MARKERS, SPECIES),
+              #color=factor_cmap('species', 'Category10_3', SPECIES)
+              )
+
+    p.legend.location = "top_left"
+    p.legend.title = "Origin"
+
+    st.bokeh_chart(p)
