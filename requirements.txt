@@ -1,0 +1,5 @@
+bokeh
+altair
+streamlit
+vega_datasets 
+matplotlib.pyplot
