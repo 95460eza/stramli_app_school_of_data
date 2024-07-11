@@ -12,6 +12,7 @@ matplotlib
 altair
 streamlit
 #streamlit==1.8.0
+
 vega_datasets 
 
 
