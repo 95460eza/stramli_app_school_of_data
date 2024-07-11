@@ -1,19 +1,21 @@
 
-pandas==1.3.0
-# Streamlit requires this Version  
-#bokeh
-bokeh==2.4.3
-
-# Bokeh is trying to use np.bool8. np.bool8 is known to exist this Version
-#numpy
-numpy==1.21.0
-
 matplotlib
+
+# Streamlit requires this Version  
+bokeh
+#bokeh==2.4.3
+
 altair
 streamlit
 #streamlit==1.8.0
 
 vega_datasets 
+
+# Bokeh is trying to use np.bool8. np.bool8 is known to exist this Version
+#numpy
+#numpy==1.21.0
+#pandas==1.3.0
+
 
 
 
