@@ -42,6 +42,11 @@ if choice == 'Matplotlib':
 
     plt.figure(figsize=(12,8))
     plt.scatter(source['Horsepower'], source['Miles_per_Gallon'])
+    plt.scatter(x=source['Horsepower'], y=source['Miles_per_Gallon'])
+    plt.xlabel("Horsepower")
+    plt.ylabel("Miles_per_Gallon")
+
+
     st.pyplot(plt)
 
 ##ALTAIR
