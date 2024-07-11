@@ -34,35 +34,37 @@ if st.button("Click to launch"):
 
 
 st.header("Visualization")
-choice = st.sidebar.radio("Choose one:", ["Matplotlib", "Altair", "Bokeh"])
 
-if choice == 'Matplotlib':
+st.subheader("Matplotlib")
 
-    st.subheader("Matplotlib")
+plt.figure(figsize=(12,8))
+plt.scatter(source['Horsepower'], source['Miles_per_Gallon'])
+st.pyplot(plt)
 
-    plt.figure(figsize=(12,8))
-    plt.scatter(source['Horsepower'], source['Miles_per_Gallon'])
-    st.pyplot(plt)
 
-##ALTAIR
-elif choice == 'Altair':
-    st.subheader("Altair")
-    brush = alt.selection(type='interval')
+brush = alt.selection(type='interval')
 
-    points = alt.Chart(source).mark_point().encode(
-        x='Horsepower:Q',
-        y='Miles_per_Gallon:Q',
-        color=alt.condition(brush, 'Origin:N', alt.value('lightgray'))
-    ).add_selection(
-        brush
-    )
+points = alt.Chart(source).mark_point().encode(
+    x='Horsepower:Q',
+    y='Miles_per_Gallon:Q',
+    color=alt.condition(brush, 'Origin:N', alt.value('lightgray'))
+).add_selection(
+    brush
+)
 
-    bars = alt.Chart(source).mark_bar().encode(
-        y='Origin:N',
-        color='Origin:N',
-        x='count(Origin):Q'
-    ).transform_filter(
-        brush
-    )
+bars = alt.Chart(source).mark_bar().encode(
+    y='Origin:N',
+    color='Origin:N',
+    x='count(Origin):Q'
+).transform_filter(
+    brush
+)
 
-    st.altair_chart(points & bars)
+st.altair_chart(points & bars)
+
+
+
+
+p = figure()
+p.circle(source['Horsepower'], source['Miles_per_Gallon'])
+st.bokeh_chart(p)
