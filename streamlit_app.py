@@ -1,9 +1,12 @@
 
-import streamlit as st
-import altair as alt
+
 from vega_datasets import data
 import matplotlib.pyplot as plt
+import altair as alt
+from bokeh.models import HoverTool
 from bokeh.plotting import figure
+from bokeh.transform import factor_cmap, factor_mark
+import streamlit as st
 
 
 source = data.cars()
